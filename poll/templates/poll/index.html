@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+	<div class="row mb-4">
+		<div class="col-6">
+			<h4>List of {{polls}}</h4>
+		</div>
+		<div class="col-6">
+			<a href="{% url 'add-poll' %}" class="btn btn-success float-right" >Add Pole</a>
+		</div>
+	</div>
+{% if questions %}
+<div class="card" >
+<ul class="list-group list-group-flush">
+{% for question in questions %}
+    <li class="list-group-item">
+    <a href="{%url 'detail' question.id %}">{{question.title}}</a>
+    <span class="float-right"><a href="{% url 'detail' question.id %}" class="btn btn-primary">Details</a>
+	<a href="{% url 'edit' question.id %}" class="btn btn-warning"">Edit</a>
+	<a href="{% url 'delete' question.id %}" class="btn btn-danger">Delete</a></span>
+	</li>
+{% endfor %}
+{% else %}
+	<p>Sorry there is no question</p>
+</ul>
+</div>
+{% endif %}
+</div>
+{% endblock %}
+
+ 

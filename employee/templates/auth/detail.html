@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title%}EMployee Detail{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h3>My Profile</h3>
+{% if user %}
+<br>
+    <table class="table table-light table-bordered table-striped">
+        <tbody>
+        <tr>
+            <th>Username</th>
+            <td>{{user.username}}</td>
+        </tr>
+        <tr>
+            <th>First Name</th>
+            <td>{{user.first_name}}</td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td>{{user.last_name}}</td>
+        </tr>
+        
+        <tr>
+            <th>Email Id</th>
+            <td>{{user.email}}</td>
+        </tr>
+        <tr>
+            <th>Salary</th>
+            <td>{{user.profile.salary}}</td>
+        </tr>
+        <tr>
+            <th>Designation</th>
+            <td>{{user.profile.designation}}</td>
+        </tr>
+        <tr>
+            <th>Role Type</th>
+            <td>{{user.profile.role_type}}</td>
+        </tr>
+    </tbody>
+    </table>
+    <div class="text-right">
+        <a class="btn btn-warning" href="{% url 'update' %}">Update</a>
+    </div>
+  {% else %}
+  <h3>NO user to show</h3>     
+{% endif %}
+</div>
+{% endblock content %}

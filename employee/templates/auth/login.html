@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<div class="row">
+	<div class="col-4">
+		<form method="POST" action="" enctype="multipart/form-data">
+	{% csrf_token %}
+	<p>{{error}}</p>
+	<fieldset class="form-group">
+		<legend class="border-bottom mb-4">
+			Login User
+		</legend>
+		{{form.as_p}}
+	</fieldset>
+	<button type="submit" class="btn btn-outline-info">Submit</button><br>
+	
+	
+</form>
+<div class="border-top mt-3">
+	<small>Are you new ? <a href="#">Cancel</a></small>
+</div>
+	</div>
+</div>
+
+</div>
+{% endblock %}
